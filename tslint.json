@@ -9,11 +9,16 @@
     ]
   },
   "rules": {
+    "member-access": [true, "no-public"],
+    "ban-types": false,
     "indent": [true, "spaces", 2],
+    "object-literal-key-quotes": false,
+    "trailing-comma": false,
     "interface-name": false,
     "no-consecutive-blank-lines": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [true, "single"]
+    "quotemark": [true, "single"],
+    "semicolon": false
   }
 }
