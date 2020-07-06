@@ -9,6 +9,7 @@
     ]
   },
   "rules": {
+    "array-type": false,
     "member-access": [true, "no-public"],
     "ban-types": false,
     "indent": [true, "spaces", 2],

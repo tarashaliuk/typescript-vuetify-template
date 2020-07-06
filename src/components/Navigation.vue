@@ -7,30 +7,10 @@
     permanent
   >
     <v-list dense>
-      <template v-for="item in navbarItems">
-        <v-row
-          v-if="item.heading"
-          :key="item.heading"
-          align="center"
-        >
-          <v-col cols="6">
-            <v-subheader v-if="item.heading">
-              {{ item.heading }}
-            </v-subheader>
-          </v-col>
-          <v-col
-            cols="6"
-            class="text-center"
-          >
-            <a
-              href="#!"
-              class="body-2 black--text"
-            >EDIT</a>
-          </v-col>
-        </v-row>
+      <template v-for="(item, idx) in navbarItems">
         <v-list-group
-          v-else-if="item.children"
-          :key="item.text"
+          v-if="item.children"
+          :key="item.text + idx"
           v-model="item.model"
           :prepend-icon="item.model ? item.icon : item['icon-alt']"
           append-icon=""
@@ -44,8 +24,9 @@
           </template>
           <v-list-item
             v-for="(child, i) in item.children"
-            :key="i"
+            :key="child.text + i"
             link
+            :to="{name: child.routeName}"
           >
             <v-list-item-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
@@ -59,7 +40,7 @@
         </v-list-group>
         <v-list-item
           v-else
-          :key="item.text"
+          :key="item.text + idx"
           link
           :to="{name: item.routeName}"
         >
@@ -81,6 +62,7 @@
   import { Component, Vue, Prop } from 'vue-property-decorator';
   import menuItems from '@/constants/MenuItems';
   import IMenuItem from '@/types/IMenuItem';
+  import ISubMenuItem from '@/types/ISubMenuItem';
 
   @Component({
     name: 'Navigation'
@@ -89,7 +71,7 @@
     @Prop({ required: true })
     private readonly drawer!: boolean;
 
-    private navbarItems: IMenuItem[] = menuItems
+    private navbarItems: (IMenuItem|ISubMenuItem)[] = menuItems
   }
 </script>
 

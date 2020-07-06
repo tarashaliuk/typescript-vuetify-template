@@ -23,10 +23,6 @@
   })
   export default class MainLayout extends Vue {
     private drawer: boolean = false
-
-    mounted() {
-      axios.get('/qqq')
-    }
   }
 </script>
 

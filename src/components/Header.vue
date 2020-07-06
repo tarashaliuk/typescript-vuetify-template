@@ -5,7 +5,7 @@
     color="blue darken-3"
     dark
   >
-    <v-app-bar-nav-icon @click.stop="toggleNavigation"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click.stop="toggleNavigation"/>
     <v-toolbar-title
       style="width: 300px"
       class="ml-0 pl-4"
@@ -19,22 +19,16 @@
       prepend-inner-icon="mdi-magnify"
       label="Search"
       class="hidden-sm-and-down"
-    ></v-text-field>
-    <v-spacer></v-spacer>
+    />
+    <v-spacer/>
     <v-btn icon>
       <v-icon>mdi-apps</v-icon>
     </v-btn>
     <v-btn icon>
       <v-icon>mdi-bell</v-icon>
     </v-btn>
-    <v-btn
-      icon
-      large
-    >
-      <v-avatar
-        size="32px"
-        item
-      >
+    <v-btn icon large>
+      <v-avatar size="32px" item>
         <v-img
           src="https://cdn.vuetifyjs.com/images/logos/logo.svg"
           alt="Vuetify"
