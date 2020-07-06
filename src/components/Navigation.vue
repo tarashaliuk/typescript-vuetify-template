@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    :clipped="$vuetify.breakpoint.lgAndUp"
+    clipped
     app
     mini-variant
     :mini-variant="drawer"
