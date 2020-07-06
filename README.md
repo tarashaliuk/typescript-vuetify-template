@@ -1,4 +1,4 @@
-# amazon
+# Typescript + Vuetify Template
 
 ## Project setup
 ```
