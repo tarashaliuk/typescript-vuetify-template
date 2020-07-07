@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
+import Login from '@/views/Login.vue';
 
 Vue.use(VueRouter);
 
@@ -24,8 +25,26 @@ const routes: RouteConfig[] = [
   },
   {
     path: '/auth',
+    redirect: {name: 'Login'},
     name: 'AuthLayout',
-    component: () => import(/* webpackChunkName: "auth" */ '../layouts/AuthLayout.vue')
+    component: () => import(/* webpackChunkName: "auth" */ '../layouts/AuthLayout.vue'),
+    children: [
+      {
+        path: 'login',
+        name: 'Login',
+        component: () => import('../views/Login.vue')
+      },
+      {
+        path: 'registration',
+        name: 'Registration',
+        component: () => import('../views/Registration.vue')
+      },
+      {
+        path: 'reset-password',
+        name: 'ResetPassword',
+        component: () => import('../views/ResetPassword.vue')
+      },
+    ]
   }
 ];
 
